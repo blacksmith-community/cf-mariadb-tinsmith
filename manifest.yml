@@ -1,0 +1,5 @@
+---
+applications:
+  - name: mariadb-tinsmith
+    memory: 1G
+    buildpack: go_buildpack
