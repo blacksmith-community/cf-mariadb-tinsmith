@@ -48,7 +48,7 @@ cf start mariadb-tinsmith
 # register this tinsmith as a service broker in CF
 cf create-service-broker mariadb-tinsmith my-broker a-secret \
   https://mariadb-tinsmith.$APP_DOMAIN
-cf enable-service-access -s mariadb
+cf enable-service-access mariadb
 
 # marvel at your handiwork
 cf marketplace
