@@ -25,7 +25,7 @@ func main() {
 	broker.Plan.ID = cfg("mariadb-43e22be8-5a3a-496c-b502-02079483f6dd", "PLAN_ID")
 	broker.Plan.Name = cfg("shared", "PLAN_NAME")
 	broker.Description = cfg("A shared MariaDB database", "DESCRIPTION")
-	broker.Tags = strings.Split(cfg("shared,mariadb,tinsmith", "TAGS"), ",")
+	broker.Tags = strings.Split(cfg("shared,mariadb,tinsmith,mysql", "TAGS"), ",")
 
 	app, err := vcaptive.ParseApplication(os.Getenv("VCAP_APPLICATION"))
 	if err != nil {

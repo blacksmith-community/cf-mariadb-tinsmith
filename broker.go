@@ -284,12 +284,16 @@ func (b *Broker) Bind(instance, bindingID string, details brokerapi.BindDetails)
 		"username": user,
 		"password": pass,
 		"database": db,
+		"jdbcUrl":  fmt.Sprintf("jdbc:mysql://%s:%s/%s?user=%s&password=%s&useSSL=false", b.Host, b.Port, db, user, pass),
+		"name":     db,
 		"host":     b.Host,
+		"hostname": b.Host,
 		"port":     b.Port,
 		"dsn":      fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", user, pass, b.Host, b.Port, db),
+		"uri":      fmt.Sprintf("mysql://%s:%s@%s:%s/%s", user, pass, b.Host, b.Port, db),
 	}
 
-	info("bound %s:%s@tcp(%s:%s)/%s\n", user, pass, b.Host, b.Port, db)
+	info("bound mysql://%s:%s@%s:%s/%s\n", user, pass, b.Host, b.Port, db)
 	info("creds = %v\n", binding.Credentials)
 	return binding, nil
 }
